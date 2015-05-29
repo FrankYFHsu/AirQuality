@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="psi_good">#b9f6ca</color>
+    <color name="psi_moderate">#ffff8d</color>
+    <color name="psi_unhealthful">#ff8a80</color>
+    <color name="psi_very_unhealthful">#ea80fc</color>
+    <color name="psi_hazardous">#795548</color>
+    <color name="white">#ffffff</color>
+</resources>
