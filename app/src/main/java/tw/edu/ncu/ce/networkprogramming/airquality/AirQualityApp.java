@@ -38,10 +38,20 @@ public class AirQualityApp {
         gson = new Gson();
 
     }
+    public Context getAppContext(){
+        return mAppContext;
+    }
 
-    public static AirQualityApp getInstance(Context c) {
+    public static synchronized AirQualityApp getInstance(Context c) {
         if (airQualityAppInstance == null) {
             airQualityAppInstance = new AirQualityApp(c.getApplicationContext());
+        }
+        return airQualityAppInstance;
+    }
+    /*Dangerous ?*/
+    public static AirQualityApp getInstance() {
+        if (airQualityAppInstance == null) {
+            throw new IllegalStateException("have you called getInstance(context)?");
         }
         return airQualityAppInstance;
     }
@@ -65,8 +75,8 @@ public class AirQualityApp {
                 Date date = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time);
                 DateTime publishDate = new DateTime(date);
                 Log.d(TAG, "publishDate = " + publishDate.toString());
-
-                DateTime updateTime = new DateTime().withMinuteOfHour(0);
+                //Current time
+                DateTime updateTime = new DateTime().withMinuteOfHour(0).withSecondOfMinute(0).withMillis(0);
                 Log.d(TAG, "update time = " + updateTime.toString());
                 if (publishDate.isBefore(updateTime)) {
                     return true;

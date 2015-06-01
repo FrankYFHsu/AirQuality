@@ -20,7 +20,6 @@ public class MainActivity extends ActionBarActivity implements AllAirQualityFrag
         if (savedInstanceState != null) {
             return;
         }
-
         AllAirQualityFragment firstFragment = new AllAirQualityFragment();
 
         getSupportFragmentManager().beginTransaction()

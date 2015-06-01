@@ -1,5 +1,6 @@
 package tw.edu.ncu.ce.networkprogramming.airquality;
 
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -33,17 +34,23 @@ public class AirQualityHolder extends RecyclerView.ViewHolder implements View.On
         int psi = Integer.parseInt(mAirQualityData.getPSI());
         status_display.setText(mAirQualityData.getStatus());
 
+        Resources resources = AirQualityApp.getInstance().getAppContext().getResources();
         if (psi <= 50) {
-            psi_display.setBackgroundResource(R.color.psi_good);
+            //psi_display.setBackgroundResource(R.color.psi_good);
+            psi_display.setTextColor(resources.getColor(R.color.psi_good));
         } else if (psi > 50 && psi <= 100) {
-            psi_display.setBackgroundResource(R.color.psi_moderate);
+            //psi_display.setBackgroundResource(R.color.psi_moderate);
+            psi_display.setTextColor(resources.getColor(R.color.psi_moderate));
         } else if (psi > 100 && psi <= 199) {
-            psi_display.setBackgroundResource(R.color.psi_unhealthful);
+            //psi_display.setBackgroundResource(R.color.psi_unhealthful);
+            psi_display.setTextColor(resources.getColor(R.color.psi_unhealthful));
         } else if (psi > 199 && psi <= 299) {
-            psi_display.setBackgroundResource(R.color.psi_very_unhealthful);
+            //psi_display.setBackgroundResource(R.color.psi_very_unhealthful);
+            psi_display.setTextColor(resources.getColor(R.color.psi_very_unhealthful));
         } else if (psi > 299) {
-            psi_display.setBackgroundResource(R.color.psi_hazardous);
-            psi_display.setTextColor(Color.rgb(255, 255, 255));
+            //psi_display.setBackgroundResource(R.color.psi_hazardous);
+            psi_display.setTextColor(resources.getColor(R.color.psi_hazardous));
+
         }
         psi_display.setText(mAirQualityData.getPSI());
 
