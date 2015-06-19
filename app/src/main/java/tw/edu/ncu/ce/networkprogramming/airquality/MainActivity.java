@@ -1,7 +1,9 @@
 package tw.edu.ncu.ce.networkprogramming.airquality;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +22,8 @@ public class MainActivity extends ActionBarActivity implements AllAirQualityFrag
         if (savedInstanceState != null) {
             return;
         }
+        Toolbar toolbar = (Toolbar) findViewById(R.id.my_awesome_toolbar);
+        setSupportActionBar(toolbar);
         AllAirQualityFragment firstFragment = new AllAirQualityFragment();
 
         getSupportFragmentManager().beginTransaction()
@@ -53,6 +57,12 @@ public class MainActivity extends ActionBarActivity implements AllAirQualityFrag
 
     @Override
     public void onFragmentInteraction(int position) {
-        //TODO
+        AirQualityWithLocationFragment newFragment = AirQualityWithLocationFragment.newInstance(position);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, newFragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }
+

@@ -30,7 +30,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/psi_display"
+                android:id="@+id/status_display"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -39,13 +39,14 @@
                 android:textSize="@dimen/abc_text_size_large_material" />
 
             <TextView
-                android:id="@+id/status_display"
+                android:id="@+id/psi_display"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="New Text"
                 android:textSize="@dimen/abc_text_size_large_material" />
+
         </LinearLayout>
 
 

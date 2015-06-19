@@ -32,7 +32,7 @@ public class AirQualityHolder extends RecyclerView.ViewHolder implements View.On
         sitename_display.setText(mAirQualityData.getSiteName());
 
         int psi = Integer.parseInt(mAirQualityData.getPSI());
-        status_display.setText(mAirQualityData.getStatus());
+        status_display.setText("空氣品質:"+mAirQualityData.getStatus());
 
         Resources resources = AirQualityApp.getInstance().getAppContext().getResources();
         if (psi <= 50) {
@@ -52,7 +52,7 @@ public class AirQualityHolder extends RecyclerView.ViewHolder implements View.On
             psi_display.setTextColor(resources.getColor(R.color.psi_hazardous));
 
         }
-        psi_display.setText(mAirQualityData.getPSI());
+        psi_display.setText("PSI:"+mAirQualityData.getPSI());
 
 
     }
